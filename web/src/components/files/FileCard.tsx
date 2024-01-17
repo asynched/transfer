@@ -16,9 +16,9 @@ export default function FileCard({ file, onDelete }: FileCardProps) {
         <div className="self-start -mt-8 py-1 px-2 bg-black rounded mb-4 border border-zinc-900">
           <h2 className="text-xl font-bold tracking-tighter">{file.name}</h2>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="mb-2 flex items-center gap-2">
           <a
-            className="mb-2 flex gap-1 items-center hover:underline"
+            className=" flex gap-1 items-center hover:underline"
             href={`http://localhost:3000/${file.url}`}
             target="_blank"
           >
@@ -29,7 +29,7 @@ export default function FileCard({ file, onDelete }: FileCardProps) {
             onClick={() => {
               navigator.clipboard.writeText(`http://localhost:3000/${file.url}`)
             }}
-            className="mb-2 flex gap-1 items-center"
+            className="flex gap-1 items-center"
           >
             <ClipboardIcon className="w-4 h-4" />
             <span>Copy link</span>

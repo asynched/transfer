@@ -27,6 +27,9 @@ router.get(
       where: {
         userId: auth.id,
       },
+      orderBy: {
+        createdAt: 'desc',
+      },
     })
 
     return files
@@ -132,4 +135,18 @@ router.delete('/:id', async (ctx) => {
   })
 
   ctx.set.status = 204
+})
+
+router.get('/count', async (ctx) => {
+  const auth = await authenticated(ctx)
+
+  const count = await prisma.file.count({
+    where: {
+      userId: auth.id,
+    },
+  })
+
+  return {
+    count,
+  }
 })

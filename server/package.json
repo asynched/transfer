@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@elysiajs/cors": "^0.8.0",
+    "@elysiajs/cron": "^0.8.0",
     "@elysiajs/jwt": "^0.8.0",
     "@elysiajs/static": "^0.8.1",
     "@elysiajs/swagger": "^0.8.3",

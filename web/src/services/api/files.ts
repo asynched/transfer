@@ -9,7 +9,11 @@ export type APIFile = {
   updatedAt: Date
 }
 
+const delay = (ms: number) => new Promise((res) => setTimeout(res, ms))
+
 export async function getFiles() {
+  await delay(1_500)
+
   const response = await fetch('http://localhost:3000/files', {
     headers: {
       Authorization: `Bearer ${getToken()}`,
@@ -60,4 +64,18 @@ export async function deleteFile(id: string) {
   })
 
   if (!response.ok) throw new Error('Invalid token')
+}
+
+export async function getCount() {
+  const response = await fetch('http://localhost:3000/files/count', {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+    },
+  })
+
+  if (!response.ok) throw new Error('Invalid token')
+
+  const data: { count: number } = await response.json()
+
+  return data.count
 }
